@@ -1,0 +1,83 @@
+/*
+ * Created by SharpDevelop.
+ * User: Alumnos
+ * Date: 08/11/2013
+ * Time: 05:26 p.m.
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Practica6
+{
+	/// <summary>
+	/// Description of MainForm.
+	/// </summary>
+	public partial class MainForm : Form
+	{
+		public MainForm()
+		{
+			//
+			// The InitializeComponent() call is required for Windows Forms designer support.
+			//
+			InitializeComponent();
+			
+			//
+			// TODO: Add constructor code after the InitializeComponent() call.
+			//
+		}
+		
+		void RadioButton2CheckedChanged(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void Button1Click(object sender, EventArgs e)
+		{
+			string fecha = Calendario.SelectionStart.ToShortDateString();	
+		int correc=0;
+		int codigo;
+		codigo = Convert.ToInt32(Codigo.Text);
+		string nombre;
+		nombre= Nom.Text;
+		
+		
+		if(this.Guadalajara.Checked)
+			correc--;
+		if(this.DF.Checked)
+			correc++;
+		if(this.Monterrey.Checked)
+			correc--;
+		
+		
+		if(this.Portugal.Checked)
+			correc++;
+		if(this.Autralia.Checked)
+			correc++;
+		if(this.rei.Checked)
+			correc--;
+		if(this.Macedonia.Checked)
+			correc++;
+		if(this.Chile.Checked)
+			correc--;
+		
+		
+		
+		
+		if(Estados.Text=="32" )
+			correc++;
+		else
+			correc--;
+        string valorCalendario = Calendario.SelectionRange.Start.ToShortDateString();
+        if (valorCalendario == "07/05/1945")
+        {
+            correc++;
+        }
+        MessageBox.Show("Codigo: "+codigo+ "\n\nnombre: "+nombre+"\n\nAciertos: "+correc);
+		}
+	}
+}
+
